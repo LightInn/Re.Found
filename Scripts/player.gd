@@ -4,6 +4,8 @@ export var speed = 300
 export var team_id = 0
 var attack_sphere = load("res://Classes/player_attack.tscn")
 var velocity = Vector2()
+var posX #position en X
+var posY #position en Y
 
 
 func _ready():
@@ -12,11 +14,13 @@ func _ready():
 	pass
 
 func _process(delta):
-	# Called every frame. Delta is time since last frame.
-	# Update game logic here.
+	
 	process_inputs(delta)
 	move_and_slide(velocity)
+	reverse()
 	pass
+	
+
 
 func process_inputs(delta):
 	velocity.x = 0
@@ -39,4 +43,19 @@ func attack():
 	sphere.team_id = team_id
 	self.get_parent().add_child(sphere)
 	sphere.set_position(self.get_position())
+
+func reverse():
+	posX = self.get_position().x
+	posY = self.get_position().y
+	if posX < 0 :
+		self.set_position(Vector2(get_viewport_rect().size.x , posY))
+	elif posX > get_viewport_rect().size.x :
+		self.set_position(Vector2( 0 , posY))
+	elif posY < 0 :
+		self.set_position(Vector2(posX ,get_viewport_rect().size.y ))
+	elif posY > get_viewport_rect().size.y :
+		self.set_position(Vector2(posX ,0))
+	
+	
+	
 	
