@@ -1,26 +1,43 @@
 # Re.Found 
-## *[0.1.0]*
+
+
+[![Version](https://img.shields.io/badge/version-0.1.0-pink.svg)]()
+[![Version](https://img.shields.io/badge/Release-Prototype-red.svg)]()
+[![Build](https://img.shields.io/badge/Supported%20OS-None{for_now}-lightgrey.svg)]()
+
+
+
 #### Will be update soon (maybe ?)
 
+<img  align="left"  src="https://cloud.snotib.eu/s/jJQKW8nbjPLcJbE/preview" width="8%"></img>
 
-A small game made with godot, the concept is to find the other players without being found in an reverse map.
-The goal : attack your enemy.
-But warning ! If you make a mistake, the other player can spot you... 
+         A small game made with godot, the concept is to find the other players without being found in an reverse map.
+        The goal : attack your enemy.
+        But warning ! If you make a mistake, the other player can spot you... 
+Made By : Never End Games 
 
+
+  <br/>
+  <br/>
+  <br/>
+
+# ----------------------------------------------------------------------------------------------
 
 
 # Screenshots
-<img src="https://cloud.snotib.eu/s/Qd8mwBoaAn7em4q/preview" width="55%"></img><img src="https://cloud.snotib.eu/s/CPdR6sq3zdczDix/preview" width="32%"></img> 
-# ---------------------------------------------------------------------------------------------------------------------------------------------------
+<img src="https://cloud.snotib.eu/s/Qd8mwBoaAn7em4q/preview" width="35%"></img><img src="https://cloud.snotib.eu/s/CPdR6sq3zdczDix/preview" width="35%"></img> 
+# ----------------------------------------------------------------------------------------------
 
 
 
 # Found a Bug ?
 
-** - Submit new issue**
--  ( https://framagit.org/never-end-games/re.found/issues/new?issue%5Bassignee_id%5D=&issue%5Bmilestone_id%5D= )
+* Submit new issue :
+[![Issue](https://img.shields.io/badge/BUG%20%3F-Click%20Here%20!-brightgreen.svg)](https://framagit.org/never-end-games/re.found/issues/new?issue%5Bassignee_id%5D=&issue%5Bmilestone_id%5D=) 
 
-# ---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# ----------------------------------------------------------------------------------------------
 
 ## Based On Godot !
 
