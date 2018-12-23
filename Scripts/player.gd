@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
 export var speed = 300
-export var attack_radius = 100
-
+export var team_id = 0
+var attack_sphere = load("res://Classes/player_attack.tscn")
 var velocity = Vector2()
 
 
@@ -31,8 +31,12 @@ func process_inputs(delta):
 		velocity.x += 1
 	velocity = velocity.normalized() * speed
 	
-	if Input.is_action_pressed("player_attack"):
+	if Input.is_action_just_pressed("player_attack"):
 		attack()
 
 func attack():
-	pass
+	var sphere = attack_sphere.instance()
+	sphere.team_id = team_id
+	self.get_parent().add_child(sphere)
+	sphere.set_position(self.get_position())
+	
