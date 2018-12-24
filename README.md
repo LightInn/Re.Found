@@ -11,22 +11,26 @@
 
 <img  align="left"  src="https://cloud.snotib.eu/s/jJQKW8nbjPLcJbE/preview" width="8%"></img>
 
-         A small game made with godot, the concept is to find the other players without being found in an reverse map.
-        The goal : attack your enemy.
-        But warning ! If you make a mistake, the other player can spot you... 
-Made By : Never End Games 
+```diff
++           A small game made with godot, the concept is to find the other players without being found in an reverse map.
++       The goal : attack your enemy.
++       But warning ! If you make a mistake, the other player can spot you... 
 
+
+- Made By : Never End Games 
+
+```
 
   <br/>
   <br/>
   <br/>
 
-# ----------------------------------------------------------------------------------------------
+# \-----------------------/
 
 
 # Screenshots
 <img src="https://cloud.snotib.eu/s/Qd8mwBoaAn7em4q/preview" width="35%"></img><img src="https://cloud.snotib.eu/s/CPdR6sq3zdczDix/preview" width="35%"></img> 
-# ----------------------------------------------------------------------------------------------
+# \-----------------------/
 
 
 
@@ -37,7 +41,7 @@ Made By : Never End Games
 
 
 
-# ----------------------------------------------------------------------------------------------
+# \-----------------------/
 
 ## Based On Godot !
 
@@ -45,7 +49,7 @@ Made By : Never End Games
 
 
 
-## ---------------------------------------------------------------------------------------------------------------------------------------------------
-## ⭕️ Disclaimer
+# \-----------------------/
+## ⭕️ Disclaimer ⭕️ 
 
 **Note: modifications, changes, or alterations to this sourcecode is acceptable (It's not free/opensource for nothing :P ) , however,any public releases utilizing this code must be approved.**
