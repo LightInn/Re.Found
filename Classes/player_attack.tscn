@@ -47,7 +47,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angular Velocity", "Color", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Resource", "Spread" ]
 
-[node name="player_attack" type="Area2D"]
+[node name="player_attack" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -60,7 +60,6 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 growing_speed = 0.3
 start_size = 0
-team_id = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
