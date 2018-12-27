@@ -5,8 +5,10 @@ extends Area2D
 # var b = "textvar"
 export var growing_speed = .3
 export var start_size = 0
-export var team_id = 0
 var timer
+
+var shooter
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -20,3 +22,9 @@ func _process(delta):
 		queue_free()
 	self.scale.x += growing_speed
 	self.scale.y += growing_speed
+
+func get_shooter():
+	return shooter
+	
+func set_shooter(s):
+	shooter = s

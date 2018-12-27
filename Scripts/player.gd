@@ -41,7 +41,7 @@ func process_inputs(delta):
 
 func attack():
 	var sphere = attack_sphere.instance()
-	sphere.team_id = team_id
+	sphere.set_shooter(self)
 	self.get_parent().add_child(sphere)
 	sphere.set_position(self.get_position())
 
@@ -56,7 +56,3 @@ func reverse():
 		self.set_position(Vector2(posX ,get_viewport_rect().size.y ))
 	elif posY > get_viewport_rect().size.y :
 		self.set_position(Vector2(posX ,0))
-	
-	
-	
-	
