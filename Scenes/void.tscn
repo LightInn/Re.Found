@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Classes/Map/Map_default.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Classes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Classes/Bot.tscn" type="PackedScene" id=3]
 
 [node name="void" type="Node" index="0"]
 
@@ -35,11 +36,15 @@ _sections_unfolded = [ "Transform" ]
 [node name="Map_default" parent="." index="1" instance=ExtResource( 1 )]
 
 position = Vector2( 960, 540 )
-scale = Vector2( 1, 1 )
 
 [node name="player" parent="." index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 400, 380 )
 scale = Vector2( 0.5, 0.5 )
+
+[node name="Bot" parent="." index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 480, 380 )
+scale = Vector2( 0.34375, 0.34375 )
 
 

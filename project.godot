@@ -12,15 +12,16 @@ config_version=3
 
 config/name="Re.Found"
 run/main_scene="res://Scenes/void.tscn"
+boot_splash/fullsize=false
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
-window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
+window/stretch/shrink="1"
 
 [input]
 

@@ -11,6 +11,7 @@ var posY #position en Y
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+
 	pass
 
 func _process(delta):
@@ -33,7 +34,7 @@ func process_inputs(delta):
 		velocity.x -= 1
 	if Input.is_action_pressed("player_right"):
 		velocity.x += 1
-	velocity = velocity.normalized() * speed
+	velocity = velocity.normalized() * (speed + delta)
 	
 	if Input.is_action_just_pressed("player_attack"):
 		attack()
