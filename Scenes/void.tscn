@@ -4,7 +4,7 @@
 [ext_resource path="res://Classes/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Classes/Bot.tscn" type="PackedScene" id=3]
 
-[node name="void" type="Node" index="0"]
+[node name="void" type="Node"]
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 
@@ -41,10 +41,14 @@ position = Vector2( 960, 540 )
 
 position = Vector2( 400, 380 )
 scale = Vector2( 0.5, 0.5 )
+collision_mask = 3
+_sections_unfolded = [ "Collision" ]
 
 [node name="Bot" parent="." index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 480, 380 )
 scale = Vector2( 0.34375, 0.34375 )
+collision_mask = 3
+_sections_unfolded = [ "Collision" ]
 
 

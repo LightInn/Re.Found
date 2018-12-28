@@ -1,30 +1,28 @@
-extends Area2D
+extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-export var growing_speed = .3
-export var start_size = 0
-var timer
-
-var shooter
-
+var beam_end
+var line 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	timer = get_node("Timer")
-	self.scale.x = start_size
-	self.scale.y = start_size
-
+	line = self.get_node("./Line2D")
+	pass
 
 func _process(delta):
-	if timer.time_left == 0:
-		queue_free()
-	self.scale.x += growing_speed
-	self.scale.y += growing_speed
-
-func get_shooter():
-	return shooter
+	line.set_point_position(0,Vector2(0,0))
+	line.set_point_position(1,beam_end)
 	
-func set_shooter(s):
-	shooter = s
+	if Input.is_mouse_button_pressed(1):
+		print("local mouse : ")
+		print(get_local_mouse_position())
+		print("beam_end : ") 
+		print(beam_end)
+
+func _physics_process(delta):
+	var ray_result = get_world_2d().direct_space_state.intersect_ray(self.global_position,get_global_mouse_position(),[self.get_parent()])
+	#													Ray cast 		start position		end position				do not collide with the player
+	if ray_result:
+		beam_end= ( ray_result.position - global_position ) *2
+	else :
+		
+		beam_end= ( get_global_mouse_position() - global_position ) *2 
