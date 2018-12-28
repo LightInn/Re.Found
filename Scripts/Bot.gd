@@ -2,43 +2,85 @@ extends KinematicBody2D
 
 
 
-var path = []
-var speed = 1
-var transition = 0
-var path_points = 0
+export var SPEED = 200
+
+var velocity = Vector2()
 var timer
-var SetRandomtime
-var RandomPoint
 var BotPosition 
 
+var posX #position en X
+var posY #position en Y
+
+var AxeX
+var AxeY
+var moveX
+var moveY
+
+#-----------------------------------------------------------------------
 
 func _ready():
+	print("READY")
 	timer = get_node("Timer")
-	timer.start()
+	RandomMotion()
+	
 	pass
 
+#-----------------------------------------------------------------------
+
 func _process(delta):
+	reverse()
 	
+	velocity.x = moveX
+	velocity.y = moveY
 	
+	velocity = velocity.normalized() * SPEED
 	
-	if timer.time_left == 0:
-		print("time end !!!!")
+	move_and_slide(velocity)
+	print("move and slide")
+	
+	if timer.time_left <= 1:
 		timer.stop()
+		print("<= 1")
 		RandomMotion()
-	path = get_node("../Map_default/Navigation2D").get_simple_path(BotPosition, RandomPoint)
-	update()
 
-func _draw():
-    for p in path:
-        draw_circle(p, 10, Color(1, 1, 1))
-		
-
-		
+#-----------------------------------------------------------------------
 func RandomMotion() :
-	timer.wait_time  = int(rand_range(3,50))
-	print(timer.wait_time)
+	print("REACTUALISATION")
+	
+	
+	#Timer Setup
+	timer.wait_time  = int(rand_range(1,3))
+	print("wait time : ", timer.wait_time)
 	timer.start()
+	
+	
+	
+	
+	
+	#Random Way
+	AxeX = int(rand_range(-2,2))
+	AxeY = int(rand_range(-2,2))
+	
+	moveX = SPEED * AxeX
+	moveY = SPEED * AxeY
+	
+	print("Axe X : ", moveX , "   Axe Y : " , moveY )
+	
+	
+	
+	
 	BotPosition = self.get_position()
-	RandomPoint = Vector2(rand_range(0,get_viewport_rect().size.x),rand_range(0,get_viewport_rect().size.y))
-	
-	
+
+
+#-----------------------------------------------------------------------
+func reverse():
+	posX = self.get_position().x
+	posY = self.get_position().y
+	if posX < 0 :
+		self.set_position(Vector2(get_viewport_rect().size.x , posY))
+	elif posX > get_viewport_rect().size.x :
+		self.set_position(Vector2( 0 , posY))
+	elif posY < 0 :
+		self.set_position(Vector2(posX ,get_viewport_rect().size.y ))
+	elif posY > get_viewport_rect().size.y :
+		self.set_position(Vector2(posX ,0))

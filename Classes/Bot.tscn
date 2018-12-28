@@ -15,15 +15,19 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+SPEED = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
+scale = Vector2( 2.30769, 2.30769 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
-modulate = Color( 0.480517, 0.207138, 0.707031, 1 )
+position = Vector2( -1, 1 )
+scale = Vector2( 0.96875, 0.96875 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="Timer" type="Timer" parent="." index="2"]
 

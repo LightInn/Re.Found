@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Ressources/map.png" type="Texture" id=1]
+[ext_resource path="res://Classes/Map/Map_default.gd" type="Script" id=2]
 
 [sub_resource type="NavigationPolygon" id=1]
 
@@ -12,6 +13,7 @@ outlines = [ PoolVector2Array( -970.766, 581.897, -972.388, -566.782, 972.89, -5
 
 position = Vector2( 0, -3.3241 )
 texture = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
