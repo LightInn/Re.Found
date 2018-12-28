@@ -15,7 +15,7 @@ func _ready():
 	timer = get_node("Timer")
 	self.scale.x = start_size
 	self.scale.y = start_size
-	print(team_id)
+
 
 func _process(delta):
 	if timer.time_left == 0:
