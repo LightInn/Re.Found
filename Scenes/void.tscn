@@ -4,7 +4,7 @@
 [ext_resource path="res://Classes/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Classes/Bot.tscn" type="PackedScene" id=3]
 
-[node name="void" type="Node"]
+[node name="void" type="Node" index="0"]
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 
@@ -46,8 +46,64 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="Bot" parent="." index="3" instance=ExtResource( 3 )]
 
-position = Vector2( 480, 380 )
-scale = Vector2( 0.34375, 0.34375 )
+position = Vector2( 750, 400 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+_sections_unfolded = [ "Collision" ]
+
+[node name="Bot2" parent="." index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 120, 120 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+_sections_unfolded = [ "Collision" ]
+
+[node name="Bot3" parent="." index="5" instance=ExtResource( 3 )]
+
+position = Vector2( 960, 140 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+_sections_unfolded = [ "Collision" ]
+
+[node name="Bot4" parent="." index="6" instance=ExtResource( 3 )]
+
+position = Vector2( 220, 970 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+_sections_unfolded = [ "Collision" ]
+
+[node name="Bot5" parent="." index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 1690, 600 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+_sections_unfolded = [ "Collision" ]
+
+[node name="Bot6" parent="." index="8" instance=ExtResource( 3 )]
+
+position = Vector2( 1560, 180 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+_sections_unfolded = [ "Collision" ]
+
+[node name="Bot7" parent="." index="9" instance=ExtResource( 3 )]
+
+position = Vector2( 1570, 980 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+_sections_unfolded = [ "Collision" ]
+
+[node name="Bot8" parent="." index="10" instance=ExtResource( 3 )]
+
+position = Vector2( 1140, 860 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+_sections_unfolded = [ "Collision" ]
+
+[node name="Bot9" parent="." index="11" instance=ExtResource( 3 )]
+
+position = Vector2( 740, 890 )
+scale = Vector2( 0.484375, 0.484375 )
 collision_mask = 3
 _sections_unfolded = [ "Collision" ]
 

@@ -19,7 +19,6 @@ var moveY
 #-----------------------------------------------------------------------
 
 func _ready():
-	print("READY")
 	timer = get_node("Timer")
 	RandomMotion()
 	
@@ -36,11 +35,9 @@ func _process(delta):
 	velocity = velocity.normalized() * SPEED
 	
 	move_and_slide(velocity)
-	print("move and slide")
 	
 	if timer.time_left <= 1:
 		timer.stop()
-		print("<= 1")
 		RandomMotion()
 
 #-----------------------------------------------------------------------
@@ -50,7 +47,6 @@ func RandomMotion() :
 	
 	#Timer Setup
 	timer.wait_time  = int(rand_range(1,3))
-	print("wait time : ", timer.wait_time)
 	timer.start()
 	
 	

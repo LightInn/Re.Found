@@ -21,6 +21,7 @@ __meta__ = {
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="0"]
 
 editor/display_folded = true
+visible = false
 position = Vector2( 0, 3.3241 )
 input_pickable = false
 collision_layer = 1
@@ -184,6 +185,7 @@ polygon = PoolVector2Array( -1024.62, -489.628, -711.853, -487.999, -713.482, -5
 [node name="Navigation2D" type="Navigation2D" parent="." index="1"]
 
 editor/display_folded = true
+visible = false
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D" index="0"]
 
