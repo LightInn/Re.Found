@@ -41,9 +41,7 @@ func process_inputs(delta):
 
 func attack():
 	var sphere = attack_sphere.instance()
-	sphere.set_shooter(self)
-	self.get_parent().add_child(sphere)
-	sphere.set_position(self.get_position())
+	self.add_child(sphere)
 
 func reverse():
 	posX = self.get_position().x

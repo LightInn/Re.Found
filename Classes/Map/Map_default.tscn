@@ -21,15 +21,15 @@ __meta__ = {
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="0"]
 
 editor/display_folded = true
-visible = false
 position = Vector2( 0, 3.3241 )
 input_pickable = false
 collision_layer = 1
-collision_mask = 1
+collision_mask = 3
 constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
 
