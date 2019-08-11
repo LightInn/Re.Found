@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Classes/Map/Map_default.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Classes/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Classes/Bot.tscn" type="PackedScene" id=3]
+
+[node name="void" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 960, 540 )
+current = true
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+
+[node name="Map_default" parent="." instance=ExtResource( 1 )]
+position = Vector2( 960, 540 )
+
+[node name="Map_default2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 960, 540 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 400, 380 )
+scale = Vector2( 0.5, 0.5 )
+collision_mask = 3
+
+[node name="Bot" parent="." instance=ExtResource( 3 )]
+position = Vector2( 750, 400 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+
+[node name="Bot2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 120, 120 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+
+[node name="Bot3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 960, 140 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+
+[node name="Bot4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 220, 970 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+
+[node name="Bot5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1690, 600 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+
+[node name="Bot6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1560, 180 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+
+[node name="Bot7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1570, 980 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+
+[node name="Bot8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1140, 860 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
+
+[node name="Bot9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 740, 890 )
+scale = Vector2( 0.484375, 0.484375 )
+collision_mask = 3
