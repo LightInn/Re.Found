@@ -4,6 +4,8 @@ extends KinematicBody2D
 
 export var SPEED = 200
 
+var Bot = true
+
 var velocity = Vector2()
 var timer
 var BotPosition 

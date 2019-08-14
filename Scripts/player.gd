@@ -3,16 +3,22 @@ extends KinematicBody2D
 export var speed = 300
 export var team_id = 0
 
-var attack_sphere = load("res://Classes/player_attack.tscn")
+var player_attack = load("res://Classes/player_attack.tscn")
 var velocity = Vector2()
 var posX #position en X
 var posY #position en Y
-var sphere = attack_sphere.instance()
+var attack
+var timer 
+var Is_Attacking
 
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+	Is_Attacking = false
+	timer = self.get_node("./Timer")
+	timer.set_wait_time(3)
+	timer.set_one_shot(true)
 	
 	
 
@@ -23,6 +29,11 @@ func _process(delta):
 	process_inputs(delta)
 	move_and_slide(velocity)
 	reverse()
+	
+	
+	if timer.get_time_left() == 0 and Is_Attacking == true:
+		attack_end()
+		
 
 	
 	pass
@@ -49,14 +60,15 @@ func process_inputs(delta):
 	
 
 func attack():
-	
-	
-	
-	
-	
-	self.add_child(sphere)
-	print("VISIBLE")
-	
+	attack = player_attack.instance()
+	timer.set_wait_time(0.1)
+	timer.start()
+	Is_Attacking = true
+	self.add_child(attack)
+
+func attack_end():
+	Is_Attacking = false
+	attack.queue_free()
 	
 	
 
