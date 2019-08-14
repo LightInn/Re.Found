@@ -16,14 +16,21 @@ _global_script_class_icons={
 [application]
 
 config/name="Re.Found"
-run/main_scene="res://Scenes/void.tscn"
+run/main_scene="res://Scenes/Menu.tscn"
 boot_splash/fullsize=false
-config/icon="res://icon.png"
+config/icon="res://Ressources/icon.png"
+
+[debug]
+
+settings/stdout/print_fps=true
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
+window/size/fullscreen=true
+mouse_cursor/custom_image="res://Ressources/cursor.png"
+mouse_cursor/tooltip_position_offset=Vector2( 5, 5 )
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 window/stretch/shrink="1"
@@ -58,4 +65,5 @@ player_attack={
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_environment="res://default_env.tres"
