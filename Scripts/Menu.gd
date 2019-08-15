@@ -1,18 +1,38 @@
 extends Panel
+var port_Node
+var maxplayer_Node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
+	
+
+	pass
+	
+	
+func _on_Host_pressed():
+	print("HOST")
+	var  SERVER_PORT = 4242
+	var  MAX_PLAYERS = 8
+
+	var peer = NetworkedMultiplayerENet.new()
+	peer.create_server(SERVER_PORT, MAX_PLAYERS)
+	get_tree().set_network_peer(peer)
+	get_tree().get_network_peer()
+	pass 
+
+
+
+
+func _on_Join_pressed():
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 
 func _on_Quit_pressed():
 	get_tree().quit()
 	pass # Replace with function body.
+
+
+
+
