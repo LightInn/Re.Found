@@ -57,6 +57,7 @@ margin_bottom = 410.0
 size_flags_horizontal = 3
 
 [node name="Join" type="Tabs" parent="ContainerGlobal/NetworkContainer/TabContainer"]
+editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -137,7 +138,6 @@ margin_bottom = 234.0
 custom_colors/font_color = Color( 1, 0.564706, 0, 1 )
 align = 1
 autowrap = true
-percent_visible = -0.00666667
 
 [node name="Host" type="Tabs" parent="ContainerGlobal/NetworkContainer/TabContainer"]
 visible = false

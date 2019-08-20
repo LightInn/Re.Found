@@ -26,11 +26,11 @@ func _physics_process(delta):
 	var ray_result = get_world_2d().direct_space_state.intersect_ray(self.global_position,get_global_mouse_position(),[self.get_parent()])
 	#													Ray cast 		start position		end position				do not collide with the player
 	if ray_result:
-		beam_end= ( ray_result.position - global_position ) * 2
+		beam_end= ( ray_result.position - global_position ) 
 		target = ray_result.collider
 		
 		if target.get("Bot"):
 			target.queue_free()
 	else :
 		
-		beam_end= ( get_global_mouse_position() - global_position ) *2 
+		beam_end= ( get_global_mouse_position() - global_position )

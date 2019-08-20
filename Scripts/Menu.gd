@@ -1,38 +1,25 @@
 extends Panel
-var port_Node
-var maxplayer_Node
 
 
 
-func _ready():
-	
-
-	pass
-	
-	
 func _on_Host_pressed():
-	print("HOST")
-	var  SERVER_PORT = 4242
-	var  MAX_PLAYERS = 8
-
-	var peer = NetworkedMultiplayerENet.new()
-	peer.create_server(SERVER_PORT, MAX_PLAYERS)
-	get_tree().set_network_peer(peer)
-	get_tree().get_network_peer()
-	pass 
-
-
+	Network.create_server()
+	_load_game()
 
 
 func _on_Join_pressed():
-	pass # Replace with function body.
+	Network.connect_to_server()
+	_load_game()
+	
 
+
+func _load_game():
+	get_tree().change_scene('res://Scenes/main.tscn')
+	print("loading game")
 
 
 func _on_Quit_pressed():
 	get_tree().quit()
-	pass # Replace with function body.
-
 
 
 
