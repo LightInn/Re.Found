@@ -17,12 +17,14 @@ var AxeX
 var AxeY
 var moveX
 var moveY
+puppet var slave_move = Vector2(0,0)
 
 #-----------------------------------------------------------------------
 
 func _ready():
 	timer = get_node("Timer")
-	RandomMotion()
+	if is_network_master():
+		RandomMotion()
 	
 	pass
 
@@ -30,22 +32,23 @@ func _ready():
 
 func _process(delta):
 	reverse()
-	
-	velocity.x = moveX
-	velocity.y = moveY
-	
-	velocity = velocity.normalized() * SPEED
-	
-	move_and_slide(velocity)
-	
-	if timer.time_left <= 1:
-		timer.stop()
-		RandomMotion()
+	if is_network_master():
+		velocity = Vector2(moveX,moveY)
+		velocity = velocity.normalized() * SPEED
+		rset("slave_move", velocity)
+		move_and_slide(velocity)
+	else:
+		move_and_slide(slave_move)
+		
 
+func _on_Timer_timeout():
+	if is_network_master():
+		RandomMotion()
+	
 #-----------------------------------------------------------------------
 func RandomMotion() :
 	
-	
+		
 	#Timer Setup
 	timer.wait_time  = int(rand_range(1,3))
 	timer.start()
@@ -59,8 +62,7 @@ func RandomMotion() :
 	moveY = SPEED * AxeY
 	
 	
-	
-	BotPosition = self.get_position()
+
 
 
 #-----------------------------------------------------------------------
@@ -75,3 +77,5 @@ func reverse():
 		self.set_position(Vector2(posX ,get_viewport_rect().size.y ))
 	elif posY > get_viewport_rect().size.y :
 		self.set_position(Vector2(posX ,0))
+
+

@@ -1,6 +1,6 @@
 extends Node
 
-export var Bot_number  = 5
+export var Bot_number  = 8
 signal call_bot
 
 func _ready():
@@ -9,7 +9,9 @@ func _ready():
 	new_player.name = str(get_tree().get_network_unique_id())
 	new_player.set_network_master(get_tree().get_network_unique_id())
 	get_tree().get_root().add_child(new_player)
+	
 	var info = Network.self_data
+	new_player.position = info.Position
 	if get_tree().is_network_server():
 		bot_setup()
 	

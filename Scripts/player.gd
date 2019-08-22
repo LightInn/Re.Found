@@ -98,6 +98,7 @@ func attack_end():
 func reverse():
 	posX = self.get_position().x
 	posY = self.get_position().y
+	print(posX,":",posY)
 	if posX < 0 :
 		self.set_position(Vector2(get_viewport_rect().size.x , posY))
 	elif posX > get_viewport_rect().size.x :
