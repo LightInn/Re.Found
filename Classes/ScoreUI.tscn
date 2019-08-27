@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Ressources/Theme.theme" type="Theme" id=1]
+[ext_resource path="res://Scripts/Score.gd" type="Script" id=2]
+[ext_resource path="res://Ressources/Roboto-Black.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 200
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+modulate = Color( 1, 1, 1, 0.991977 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="V" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Own" type="Label" parent="V"]
+margin_top = 422.0
+margin_right = 911.0
+margin_bottom = 657.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.647059, 0.937255, 0.486275, 1 )
+text = "0"
+align = 2
+uppercase = true
+
+[node name="-" type="Label" parent="V"]
+margin_left = 915.0
+margin_top = 422.0
+margin_right = 1005.0
+margin_bottom = 657.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.741176, 0.741176, 0.741176, 1 )
+text = "-"
+
+[node name="Enemy" type="Label" parent="V"]
+margin_left = 1009.0
+margin_top = 422.0
+margin_right = 1920.0
+margin_bottom = 657.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.839216, 0.352941, 0.352941, 1 )
+text = "0"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

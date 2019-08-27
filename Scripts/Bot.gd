@@ -18,6 +18,7 @@ var AxeY
 var moveX
 var moveY
 puppet var slave_move = Vector2(0,0)
+puppet var slave_position = Vector2(0,0)
 
 #-----------------------------------------------------------------------
 
@@ -37,23 +38,28 @@ func _process(delta):
 		velocity = velocity.normalized() * SPEED
 		rset("slave_move", velocity)
 		move_and_slide(velocity)
+		
 	else:
+		
 		move_and_slide(slave_move)
 		
 
 func _on_Timer_timeout():
 	if is_network_master():
 		RandomMotion()
+		rset_unreliable("slave_position", self.position)
+	else:
+		timer.wait_time  = 1
+		timer.start()
+		self.position = slave_position
+			
+
+		
 	
 #-----------------------------------------------------------------------
 func RandomMotion() :
-	
-		
-	#Timer Setup
 	timer.wait_time  = int(rand_range(1,3))
 	timer.start()
-	
-	
 	#Random Way
 	AxeX = int(rand_range(-2,2))
 	AxeY = int(rand_range(-2,2))

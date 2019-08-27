@@ -5,11 +5,13 @@ var beam_end = Vector2(0,0)
 var line 
 var target
 var ray_result 
+signal score_change
 
 puppet var slave_beam_end = Vector2(0,0)
 
 func _ready():
 	line = self.get_node("./Line2D")
+	self.connect("score_change",get_tree().get_root().get_node('Main'),"Score_change")
 
 
 
@@ -27,8 +29,9 @@ func _physics_process(delta):
 		if ray_result:
 			beam_end=  ray_result.position  - global_position
 			target = ray_result.collider
-			if target.get("Bot"):
-				target.queue_free()
+			if target.is_in_group("bots"):
+				emit_signal("score_change")
+				
 		else :
 			beam_end= get_global_mouse_position() - global_position
 			

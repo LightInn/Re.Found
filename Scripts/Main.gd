@@ -1,7 +1,9 @@
 extends Node
 
-export var Bot_number  = 8
+export var Bot_number  = 6
 signal call_bot
+var ScoreUI
+
 
 func _ready():
 	
@@ -15,11 +17,20 @@ func _ready():
 	if get_tree().is_network_server():
 		bot_setup()
 	
+	var ScoreUI = preload("res://Classes/ScoreUI.tscn").instance()
+	ScoreUI.name = "ScoreUI"
+	self.add_child(ScoreUI)
+	
+	
+	
 
 func bot_setup():	
 	self.connect("call_bot",Network,"call_bot")
 	for bot in Bot_number :
 		emit_signal("call_bot",bot)
+
+func Score_change():
+	self.get_node("ScoreUI").Add_Score_local()
 
 	
 
