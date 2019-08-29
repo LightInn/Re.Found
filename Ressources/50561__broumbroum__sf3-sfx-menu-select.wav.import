@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/50561__broumbroum__sf3-sfx-menu-select.wav-c812c80c65738c22b7694d695f67e0c9.sample"
+
+[deps]
+
+source_file="res://Ressources/50561__broumbroum__sf3-sfx-menu-select.wav"
+dest_files=[ "res://.import/50561__broumbroum__sf3-sfx-menu-select.wav-c812c80c65738c22b7694d695f67e0c9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

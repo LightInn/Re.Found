@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/177906__medetix__pc-bitcrushed-lazer-beam.wav-ffb3f7392ac90157e066edb803407d37.sample"
+
+[deps]
+
+source_file="res://Ressources/177906__medetix__pc-bitcrushed-lazer-beam.wav"
+dest_files=[ "res://.import/177906__medetix__pc-bitcrushed-lazer-beam.wav-ffb3f7392ac90157e066edb803407d37.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

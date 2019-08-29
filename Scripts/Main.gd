@@ -1,6 +1,6 @@
 extends Node
 
-export var Bot_number  = 6
+export var Bot_number  = 12
 signal call_bot
 var ScoreUI
 
@@ -10,6 +10,7 @@ func _ready():
 	var new_player = preload("res://Classes/player.tscn").instance()
 	new_player.name = str(get_tree().get_network_unique_id())
 	new_player.set_network_master(get_tree().get_network_unique_id())
+	new_player.modulate = Color(1,0,0)
 	get_tree().get_root().add_child(new_player)
 	
 	var info = Network.self_data

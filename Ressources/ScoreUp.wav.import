@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ScoreUp.wav-60ff6b0731615f1221118ce44e7118fd.sample"
+
+[deps]
+
+source_file="res://Ressources/ScoreUp.wav"
+dest_files=[ "res://.import/ScoreUp.wav-60ff6b0731615f1221118ce44e7118fd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

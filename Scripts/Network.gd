@@ -19,21 +19,21 @@ func _ready():
 	pass
 	
 	
-func create_server():
+func create_server(port):
 	_data_maker()
 	#self_data.Position = spawn[2]
 	players[1] = self_data
-	peer.create_server(DEFAULT_PORT, MAX_PLAYER)
+	peer.create_server(port, MAX_PLAYER)
 	get_tree().set_network_peer(peer)
 	
 	
 	
-func connect_to_server():
+func connect_to_server(ip,port):
 # warning-ignore:return_value_discarded
 	_data_maker()
 	#self_data.Position = spawn[3]
 	
-	peer.create_client(DEFAULT_IP, DEFAULT_PORT)
+	peer.create_client(ip, port)
 	get_tree().set_network_peer(peer)
 	
 func call_client_lauch():
@@ -46,7 +46,7 @@ remote func _client_launch():
 	
 	
 func _data_maker():
-	var index = int(rand_range(-1,Spawn.size()))
+	var index = int(rand_range(0,Spawn.size()))
 	
 	self_data.Position = Spawn[index] 
 	Spawn.remove(index)
@@ -85,7 +85,7 @@ sync func _player_attack(node_id,id):
 func call_bot(number):
 	var index = int(rand_range(0,Spawn.size()))
 	rpc("_setup_bots",number,Spawn[index])
-	Spawn.remove(index)
+	#Spawn.remove(index)
 	
 	
 	

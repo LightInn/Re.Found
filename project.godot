@@ -23,6 +23,7 @@ config/icon="res://Ressources/icon.png"
 [autoload]
 
 Network="*res://Scripts/Network.gd"
+SoundManager="*res://Scripts/SoundManager.gd"
 
 [debug]
 

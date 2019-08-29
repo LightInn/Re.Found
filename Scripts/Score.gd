@@ -16,18 +16,28 @@ func Add_Score_local():
 		score = int(us.text)
 		score += 1
 		us.text = str(score)
-		
+		_show_score()
 		rpc("_Add_Score_distant")
-		
-
-	else : 
-		pass	
-	
 
 
-	
 
 remote func _Add_Score_distant():
 	score = int(other.text)
 	score += 1
 	other.text = str(score)
+	_show_score()
+
+	
+func _show_score():
+	$AnimationPlayer.play("ScoreChange")
+	$AudioStreamPlayer.play()
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
