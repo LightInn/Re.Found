@@ -3,7 +3,7 @@ extends KinematicBody2D
 export var speed = 300
 export var team_id = 0
 
-
+var Spawn = [Vector2(50,150),Vector2(200,250),Vector2(160,550),Vector2(60,200),Vector2(250,230),Vector2(300,800),Vector2(45,1050),Vector2(1050,1000),Vector2(1800,800),Vector2(1750,450),Vector2(1850,250),Vector2(1000,100),]
 
 slave var slave_position = Vector2()
 slave var slave_velocity = Vector2(0,0)
@@ -15,23 +15,17 @@ var posX #position en X
 var posY #position en Y
 var attack
 var timer 
-var Is_Attacking
+var Is_Attacking = false
 signal is_attacking
 var node_id = self
 
-func init():
-	
-	
-	pass
+
+
 
 
 
 func _ready():
-	Is_Attacking = false
-	timer = self.get_node("./Timer")
-	timer.set_wait_time(3)
-	timer.set_one_shot(true)
-	
+	timer = self.get_node("./Timer")	
 	self.connect('is_attacking', Network ,'call_attack')
 	
 	
@@ -39,7 +33,10 @@ func _physics_process(delta):
 	
 	if is_network_master():
 		
-		if Input.is_action_just_pressed("player_attack"):
+		if Input.is_action_just_pressed("player_attack") and !Is_Attacking:
+			Is_Attacking = true
+			Input.set_custom_mouse_cursor(load("res://Ressources/cursor_inactive.png"))
+			timer.start()
 			emit_signal('is_attacking',node_id)
 		
 		
@@ -62,7 +59,7 @@ func _physics_process(delta):
 		_move(velocity)
 	else:
 		_move(slave_velocity)
-		position = slave_position
+		self.position = slave_position
 #	if get_tree().is_network_server():
 #		Network.update_position(int(name),position)
 		
@@ -70,12 +67,7 @@ func _physics_process(delta):
 
 func _process(delta):
 	reverse()
-	
-	
-	
-	if timer.get_time_left() == 0 and Is_Attacking == true:
-		attack_end()
-		
+
 
 func _move(direction):
 	move_and_slide(velocity)
@@ -89,11 +81,13 @@ func attack():
 	Is_Attacking = true
 	self.add_child(attack)
 
-func attack_end():
-	Is_Attacking = false
-	attack.queue_free()
-	
-	
+
+func Respawn():
+	var index = int(rand_range(0,Spawn.size()))
+	self.position =  Spawn[index] 
+	#Network.respawn()
+
+
 
 func reverse():
 	posX = self.get_position().x
@@ -106,3 +100,8 @@ func reverse():
 		self.set_position(Vector2(posX ,get_viewport_rect().size.y ))
 	elif posY > get_viewport_rect().size.y :
 		self.set_position(Vector2(posX ,0))
+
+
+func _on_Timer_timeout():
+	Is_Attacking = false
+	Input.set_custom_mouse_cursor(load("res://Ressources/cursor_active.png"),Input.CURSOR_CROSS)

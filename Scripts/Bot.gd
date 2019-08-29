@@ -5,7 +5,7 @@ extends KinematicBody2D
 export var SPEED = 200
 
 var Bot = true
-
+var Spawn = [Vector2(50,150),Vector2(200,250),Vector2(160,550),Vector2(60,200),Vector2(250,230),Vector2(300,800),Vector2(45,1050),Vector2(1050,1000),Vector2(1800,800),Vector2(1750,450),Vector2(1850,250),Vector2(1000,100),]
 var velocity = Vector2()
 var timer
 var BotPosition 
@@ -26,8 +26,8 @@ func _ready():
 	timer = get_node("Timer")
 	if is_network_master():
 		RandomMotion()
-	
-	pass
+
+
 
 #-----------------------------------------------------------------------
 
@@ -36,22 +36,19 @@ func _process(delta):
 	if is_network_master():
 		velocity = Vector2(moveX,moveY)
 		velocity = velocity.normalized() * SPEED
-		rset("slave_move", velocity)
 		move_and_slide(velocity)
+		rset_unreliable("slave_position", self.position)
 		
 	else:
 		
 		move_and_slide(slave_move)
+		self.position = slave_position
 		
 
 func _on_Timer_timeout():
 	if is_network_master():
 		RandomMotion()
-		rset_unreliable("slave_position", self.position)
-	else:
-		timer.wait_time  = 1
-		timer.start()
-		self.position = slave_position
+		
 			
 
 		
@@ -68,6 +65,12 @@ func RandomMotion() :
 	moveY = SPEED * AxeY
 	
 	
+
+func Respawn():
+	var index = int(rand_range(0,Spawn.size()))
+	self.position =  Spawn[index] 
+
+
 
 
 

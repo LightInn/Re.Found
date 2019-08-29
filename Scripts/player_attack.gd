@@ -12,6 +12,7 @@ puppet var slave_beam_end = Vector2(0,0)
 func _ready():
 	line = self.get_node("./Line2D")
 	self.connect("score_change",get_tree().get_root().get_node('Main'),"Score_change")
+	self.connect("score_change",get_parent(),"Respawn")
 
 
 

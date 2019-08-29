@@ -1,8 +1,10 @@
 extends Node
 
-export var Bot_number  = 12
+export var Bot_number  = 8
 signal call_bot
 var ScoreUI
+var pause = false
+
 
 
 func _ready():
@@ -11,7 +13,7 @@ func _ready():
 	new_player.name = str(get_tree().get_network_unique_id())
 	new_player.set_network_master(get_tree().get_network_unique_id())
 	new_player.modulate = Color(1,0,0)
-	get_tree().get_root().add_child(new_player)
+	self.add_child(new_player)
 	
 	var info = Network.self_data
 	new_player.position = info.Position
@@ -32,6 +34,39 @@ func bot_setup():
 
 func Score_change():
 	self.get_node("ScoreUI").Add_Score_local()
+	if is_network_master():
+		get_tree().call_group("bots","Respawn")
+	else:
+		rpc("_call_respawn")
+		
+remote func 	_call_respawn():
+	get_tree().call_group("bots","Respawn")
+
 
 	
-
+func _process(delta):
+	var PauseMenu = preload("res://Classes/PauseMenu.tscn").instance()
+	if Input.is_action_pressed("ui_cancel") and pause == false:
+		self.add_child(PauseMenu)
+		PauseMenu.set_as_toplevel(true)
+		
+		pause = true
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

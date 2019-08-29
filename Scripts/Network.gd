@@ -62,7 +62,7 @@ remote func _send_player_info(id, data):
 		var new_player = load('res://Classes/player.tscn').instance()
 		new_player.name = str(id)
 		new_player.set_network_master(id)
-		get_tree().get_root().add_child(new_player)
+		get_tree().get_root().get_node('Main').add_child(new_player)
 		new_player.visible = true
 		#new_player.position = data.Position
 
@@ -76,7 +76,7 @@ sync func _player_attack(node_id,id):
 	var new_attack = load("res://Classes/player_attack.tscn").instance()
 	new_attack.name = str(id) + "_attack"
 	new_attack.set_network_master(id)
-	var owner = get_tree().get_root().get_node(str(id))
+	var owner = get_tree().get_root().get_node('Main').get_node(str(id))
 	owner.add_child(new_attack)	
 	#new_attack.init(id)
 	
@@ -94,7 +94,7 @@ sync func _setup_bots(number,Spawn):
 	var bot = load("res://Classes/Bot.tscn").instance()
 	bot.name = "bot_" + str(number)
 	bot.set_network_master(1)
-	get_tree().get_root().add_child(bot)	
+	get_tree().get_root().get_node('Main').add_child(bot)	
 	bot.position = Spawn
 	print(Spawn)
 	
