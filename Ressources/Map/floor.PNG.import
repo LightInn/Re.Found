@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/floor.PNG-7fa8c5c5b92c49bea4d20879972cd1ba.stex"
+path="res://.import/floor.PNG-1c20c998bb3e771e36f8e2dcde4d6b8b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ressources/MapKrita/floor.PNG"
-dest_files=[ "res://.import/floor.PNG-7fa8c5c5b92c49bea4d20879972cd1ba.stex" ]
+source_file="res://Ressources/Map/floor.PNG"
+dest_files=[ "res://.import/floor.PNG-1c20c998bb3e771e36f8e2dcde4d6b8b.stex" ]
 
 [params]
 
