@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/player_attack.gd" type="Script" id=1]
+
+[node name="player_attack" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Line2D" type="Line2D" parent="." index="0"]
+
+points = PoolVector2Array( 0, 0, 0, 0 )
+width = 10.0
+default_color = Color( 0, 0.166667, 1, 1 )
+texture_mode = 40
+sharp_limit = 2.0
+round_precision = 8
+_sections_unfolded = [ "Fill", "Transform" ]
+
+[node name="Timer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 0.01
+one_shot = false
+autostart = false
+
+

@@ -35,7 +35,7 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("player_attack") and !Is_Attacking:
 			Is_Attacking = true
-			Input.set_custom_mouse_cursor(load("res://Ressources/cursor_inactive.png"))
+			Cursor.inactive()
 			timer.start()
 			emit_signal('is_attacking',node_id)
 		
@@ -104,4 +104,4 @@ func reverse():
 
 func _on_Timer_timeout():
 	Is_Attacking = false
-	Input.set_custom_mouse_cursor(load("res://Ressources/cursor_active.png"),Input.CURSOR_CROSS)
+	Cursor.activate()
