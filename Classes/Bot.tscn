@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Bot.gd" type="Script" id=1]
-[ext_resource path="res://Ressources/Godot.png" type="Texture" id=2]
+[ext_resource path="res://Ressources/Bots.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
+extents = Vector2( 15, 15 )
 
 [node name="Bot" type="KinematicBody2D" groups=[
 "bots",

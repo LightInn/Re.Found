@@ -32,7 +32,6 @@ theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="ContainerGlobal" type="VBoxContainer" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/separation = -1
@@ -168,48 +167,48 @@ anchor_bottom = 1.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ContainerGlobal/NetworkContainer/TabContainer/Join/HBoxContainer2"]
-margin_left = 745.0
-margin_right = 1166.0
-margin_bottom = 812.0
+margin_left = 479.0
+margin_right = 1424.0
+margin_bottom = 790.0
 alignment = 1
 
 [node name="Ip" type="HBoxContainer" parent="ContainerGlobal/NetworkContainer/TabContainer/Join/HBoxContainer2/VBoxContainer"]
-margin_top = 280.0
-margin_right = 421.0
-margin_bottom = 355.0
+margin_top = 250.0
+margin_right = 945.0
+margin_bottom = 335.0
 alignment = 1
 
 [node name="Ip_label" type="Label" parent="ContainerGlobal/NetworkContainer/TabContainer/Join/HBoxContainer2/VBoxContainer/Ip"]
-margin_top = 28.0
+margin_top = 33.0
 margin_right = 67.0
-margin_bottom = 47.0
+margin_bottom = 52.0
 text = "Server IP"
 
 [node name="ip" type="LineEdit" parent="ContainerGlobal/NetworkContainer/TabContainer/Join/HBoxContainer2/VBoxContainer/Ip"]
-margin_left = 71.0
-margin_right = 421.0
-margin_bottom = 75.0
+margin_left = 75.0
+margin_right = 945.0
+margin_bottom = 85.0
 size_flags_horizontal = 3
-text = "192.168.1.22"
-max_length = 12
+text = "192.168.0.0"
+max_length = 55
 expand_to_text_length = true
 
 [node name="Port" type="HBoxContainer" parent="ContainerGlobal/NetworkContainer/TabContainer/Join/HBoxContainer2/VBoxContainer"]
-margin_top = 359.0
-margin_right = 421.0
-margin_bottom = 434.0
+margin_top = 343.0
+margin_right = 945.0
+margin_bottom = 428.0
 alignment = 1
 
 [node name="Port_label" type="Label" parent="ContainerGlobal/NetworkContainer/TabContainer/Join/HBoxContainer2/VBoxContainer/Port"]
-margin_top = 28.0
+margin_top = 33.0
 margin_right = 83.0
-margin_bottom = 47.0
+margin_bottom = 52.0
 text = "Server Port"
 
 [node name="port" type="LineEdit" parent="ContainerGlobal/NetworkContainer/TabContainer/Join/HBoxContainer2/VBoxContainer/Port"]
-margin_left = 87.0
-margin_right = 421.0
-margin_bottom = 75.0
+margin_left = 91.0
+margin_right = 945.0
+margin_bottom = 85.0
 size_flags_horizontal = 3
 text = "4242"
 align = 1
@@ -217,15 +216,15 @@ max_length = 5
 expand_to_text_length = true
 
 [node name="Join" type="Button" parent="ContainerGlobal/NetworkContainer/TabContainer/Join/HBoxContainer2/VBoxContainer"]
-margin_top = 438.0
-margin_right = 421.0
-margin_bottom = 509.0
+margin_top = 436.0
+margin_right = 945.0
+margin_bottom = 513.0
 text = "Join"
 
 [node name="Status" type="Label" parent="ContainerGlobal/NetworkContainer/TabContainer/Join/HBoxContainer2/VBoxContainer"]
-margin_top = 513.0
-margin_right = 421.0
-margin_bottom = 532.0
+margin_top = 521.0
+margin_right = 945.0
+margin_bottom = 540.0
 custom_colors/font_color = Color( 1, 0.564706, 0, 1 )
 align = 1
 autowrap = true

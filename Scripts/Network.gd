@@ -25,16 +25,25 @@ func create_server(port):
 	players[1] = self_data
 	peer.create_server(port, MAX_PLAYER)
 	get_tree().set_network_peer(peer)
+	print("server crre",port)
 	
 	
 	
 func connect_to_server(ip,port):
 # warning-ignore:return_value_discarded
+	print("start",ip,port)
 	_data_maker()
+	print("data maker",ip,port)
 	#self_data.Position = spawn[3]
 	
 	peer.create_client(ip, port)
+	print("create clien",ip,port)
 	get_tree().set_network_peer(peer)
+	print("set per",ip,port)
+	
+	
+	
+	
 	
 func call_client_lauch():
 	rpc('_client_launch')
@@ -79,6 +88,11 @@ sync func _player_attack(node_id,id):
 	var owner = get_tree().get_root().get_node('Main').get_node(str(id))
 	owner.add_child(new_attack)	
 	#new_attack.init(id)
+	
+
+
+	
+	
 	
 ############         Bots
 

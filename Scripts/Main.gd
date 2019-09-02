@@ -1,6 +1,6 @@
 extends Node
 
-export var Bot_number  = 8
+export var Bot_number  = 20
 signal call_bot
 var ScoreUI
 var pause = false
@@ -12,8 +12,9 @@ func _ready():
 	var new_player = preload("res://Classes/player.tscn").instance()
 	new_player.name = str(get_tree().get_network_unique_id())
 	new_player.set_network_master(get_tree().get_network_unique_id())
-	new_player.modulate = Color(1,0,0)
+	
 	self.add_child(new_player)
+	new_player.get_node("Sprite").texture = load("res://Ressources/Player.png")
 	
 	var info = Network.self_data
 	new_player.position = info.Position
@@ -36,11 +37,15 @@ func Score_change():
 	self.get_node("ScoreUI").Add_Score_local()
 	if is_network_master():
 		get_tree().call_group("bots","Respawn")
+		get_tree().call_group("players","Respawn")
+		
 	else:
 		rpc("_call_respawn")
 		
 remote func 	_call_respawn():
 	get_tree().call_group("bots","Respawn")
+	get_tree().call_group("players","Respawn")
+	
 
 
 	

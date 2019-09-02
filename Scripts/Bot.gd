@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 
 
-export var SPEED = 200
+export var SPEED = 300
 
 var Bot = true
 var Spawn = [Vector2(50,150),Vector2(200,250),Vector2(160,550),Vector2(60,200),Vector2(250,230),Vector2(300,800),Vector2(45,1050),Vector2(1050,1000),Vector2(1800,800),Vector2(1750,450),Vector2(1850,250),Vector2(1000,100),]
@@ -55,7 +55,7 @@ func _on_Timer_timeout():
 	
 #-----------------------------------------------------------------------
 func RandomMotion() :
-	timer.wait_time  = int(rand_range(1,3))
+	timer.wait_time  = rand_range(0,3)
 	timer.start()
 	#Random Way
 	AxeX = int(rand_range(-2,2))
