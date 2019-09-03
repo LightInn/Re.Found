@@ -9,8 +9,10 @@ func _ready():
 
 
 func New_PowerUp():
-	$AnimationPlayer.play("PU_test")	
 	PU_rand = PU_list[randi() % PU_list.size()]
+	$V/VBoxContainer/TextureRect.texture = load("res://Ressources/UI/powerup/" + PU_rand + ".png")
+	$AnimationPlayer.play("PU_show")	
+	
 	
 	
 func Use_PowerUp():

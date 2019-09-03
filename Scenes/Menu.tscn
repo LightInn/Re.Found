@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Ressources/Theme.theme" type="Theme" id=1]
+[ext_resource path="res://Ressources/UI/Theme.theme" type="Theme" id=1]
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
-[ext_resource path="res://Ressources/Roboto-Black.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Ressources/font/Roboto-Black.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -48,23 +48,22 @@ valign = 1
 [node name="NetworkContainer" type="HBoxContainer" parent="ContainerGlobal"]
 margin_top = 117.0
 margin_right = 1920.0
-margin_bottom = 1016.0
+margin_bottom = 1021.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="TabContainer" type="TabContainer" parent="ContainerGlobal/NetworkContainer"]
 margin_right = 1920.0
-margin_bottom = 899.0
+margin_bottom = 904.0
 size_flags_horizontal = 3
 tab_align = 0
 drag_to_rearrange_enabled = true
 
 [node name="Host" type="Tabs" parent="ContainerGlobal/NetworkContainer/TabContainer"]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
-margin_top = 101.0
+margin_top = 96.0
 margin_right = -8.0
 margin_bottom = -8.0
 __meta__ = {
@@ -80,28 +79,28 @@ __meta__ = {
 }
 
 [node name="hosts_buttons" type="VBoxContainer" parent="ContainerGlobal/NetworkContainer/TabContainer/Host/HBoxContainer"]
-margin_left = 835.0
-margin_right = 1069.0
-margin_bottom = 790.0
+margin_left = 786.0
+margin_right = 1118.0
+margin_bottom = 800.0
 size_flags_vertical = 3
 alignment = 1
 
 [node name="Port" type="HBoxContainer" parent="ContainerGlobal/NetworkContainer/TabContainer/Host/HBoxContainer/hosts_buttons"]
-margin_top = 310.0
-margin_right = 234.0
-margin_bottom = 395.0
+margin_top = 320.0
+margin_right = 332.0
+margin_bottom = 400.0
 alignment = 1
 
 [node name="Label" type="Label" parent="ContainerGlobal/NetworkContainer/TabContainer/Host/HBoxContainer/hosts_buttons/Port"]
-margin_top = 33.0
-margin_right = 50.0
-margin_bottom = 52.0
+margin_top = 10.0
+margin_right = 160.0
+margin_bottom = 70.0
 text = "PORT :"
 
 [node name="LineEdit" type="LineEdit" parent="ContainerGlobal/NetworkContainer/TabContainer/Host/HBoxContainer/hosts_buttons/Port"]
-margin_left = 58.0
-margin_right = 234.0
-margin_bottom = 85.0
+margin_left = 168.0
+margin_right = 332.0
+margin_bottom = 80.0
 text = "4242"
 
 [node name="PlayerNumber" type="HBoxContainer" parent="ContainerGlobal/NetworkContainer/TabContainer/Host/HBoxContainer/hosts_buttons"]
@@ -128,8 +127,8 @@ max_length = 12
 expand_to_text_length = true
 
 [node name="Host" type="Button" parent="ContainerGlobal/NetworkContainer/TabContainer/Host/HBoxContainer/hosts_buttons"]
-margin_top = 403.0
-margin_right = 234.0
+margin_top = 408.0
+margin_right = 332.0
 margin_bottom = 480.0
 text = "Host"
 
@@ -157,7 +156,7 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.0
-margin_top = 101.0
+margin_top = 38.0
 margin_right = -8.0
 margin_bottom = -8.0
 
@@ -230,7 +229,7 @@ align = 1
 autowrap = true
 
 [node name="Quit" type="Button" parent="ContainerGlobal"]
-margin_top = 1015.0
+margin_top = 1020.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 size_flags_horizontal = 3

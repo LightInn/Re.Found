@@ -26,7 +26,7 @@ func _ready():
 	
 	self.add_child(new_player)
 	
-	new_player.get_node("Sprite").texture = load("res://Ressources/Player.png")
+	new_player.get_node("Sprite").texture = load("res://Ressources/textures/entity/Player.png")
 	
 	var info = Network.self_data
 	new_player.position = info.Position

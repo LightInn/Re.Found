@@ -20,10 +20,10 @@ func _process(delta):
 	$Pos.position += velocity
 	
 func inactive():
-	$Pos/Sprite.texture = load("res://Ressources/cursor_inactive.png")
+	$Pos/Sprite.texture = load("res://Ressources/UI/cursor/cursor_inactive.png")
 	
 func activate():
-	$Pos/Sprite.texture = load("res://Ressources/cursor_active.png")
+	$Pos/Sprite.texture = load("res://Ressources/UI/cursor/cursor_active.png")
 func Swich_PowerUp():
 	print("swxit")
 	if Is_PUvisible :
