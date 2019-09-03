@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Cursor.gd" type="Script" id=1]
 [ext_resource path="res://Ressources/cursor_active.png" type="Texture" id=2]
+[ext_resource path="res://Ressources/cursor_superactive.png" type="Texture" id=3]
 
 [node name="Cursor" type="CanvasLayer"]
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Pos" type="Position2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Pos"]
 texture = ExtResource( 2 )
+
+[node name="PUSprite" type="Sprite" parent="Pos"]
+visible = false
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )

@@ -9,11 +9,23 @@ var pause = false
 
 func _ready():
 	
+		################      >> UI
+	var ScoreUI = preload("res://Classes/ScoreUI.tscn").instance()
+	ScoreUI.name = "ScoreUI"
+	self.add_child(ScoreUI)
+	var PuUI = preload("res://Classes/PowerupUI.tscn").instance()
+	PuUI.name = "PuUI"
+	self.add_child(PuUI)
+	
+		################      >> BOTS + PLAYER
+	
+	
 	var new_player = preload("res://Classes/player.tscn").instance()
 	new_player.name = str(get_tree().get_network_unique_id())
 	new_player.set_network_master(get_tree().get_network_unique_id())
 	
 	self.add_child(new_player)
+	
 	new_player.get_node("Sprite").texture = load("res://Ressources/Player.png")
 	
 	var info = Network.self_data
@@ -21,9 +33,8 @@ func _ready():
 	if get_tree().is_network_server():
 		bot_setup()
 	
-	var ScoreUI = preload("res://Classes/ScoreUI.tscn").instance()
-	ScoreUI.name = "ScoreUI"
-	self.add_child(ScoreUI)
+	
+
 	
 	
 	
@@ -53,9 +64,10 @@ func _process(delta):
 	var PauseMenu = preload("res://Classes/PauseMenu.tscn").instance()
 	if Input.is_action_pressed("ui_cancel") and pause == false:
 		self.add_child(PauseMenu)
-		PauseMenu.set_as_toplevel(true)
+		PauseMenu.set_as_toplevel(false)
 		
 		pause = true
+		self.get_node(str(get_tree().get_network_unique_id())).pause  = true
 		
 		
 	

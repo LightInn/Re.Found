@@ -12,7 +12,7 @@ var ip = "192.168.0.0"
 func _ready():
 	get_tree().connect("network_peer_connected",self, "_load_game")
 	self.connect("launch_client", Network,"call_client_lauch")
-	
+
 
 
 
