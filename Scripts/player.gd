@@ -158,12 +158,15 @@ func reverse():
 
 func gravity_switch():
 	if Is_Gravity:
-		Is_Gravity = false
-	
+		Is_Gravity = false	
 	else:
 		Is_Gravity = true
 	
-	
+func reverse_switch():
+	if Is_Gravity:
+		Is_Gravity = false	
+	else:
+		Is_Gravity = true
 
 
 

@@ -7,6 +7,7 @@ const gravity = 200.0
 
 var Is_Gravity = false
 var Is_jumping = false
+var Is_Madness = false
 var Bot = true
 var Spawn = [Vector2(50,150),Vector2(200,250),Vector2(160,550),Vector2(60,200),Vector2(250,230),Vector2(300,800),Vector2(45,1050),Vector2(1050,1000),Vector2(1800,800),Vector2(1750,450),Vector2(1850,250),Vector2(1000,100),]
 var velocity = Vector2()
@@ -37,6 +38,9 @@ func _ready():
 func _process(delta):
 	reverse()
 	if is_network_master():
+		
+		if Is_Madness:
+			return
 		
 		rset_unreliable("slave_position", self.position)
 		
@@ -120,8 +124,11 @@ func reverse():
 func gravity_switch():
 	if Is_Gravity:
 		Is_Gravity = false
-	
 	else:
 		Is_Gravity = true
 	
-	
+func madness_switch():
+	if Is_Madness:
+		Is_Madness = false
+	else:
+		Is_Madness = true
