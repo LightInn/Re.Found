@@ -2,8 +2,11 @@ extends KinematicBody2D
 
 
 
-export var SPEED = 300
+export var speed = 300
+const gravity = 200.0
 
+var Is_Gravity = false
+var Is_jumping = false
 var Bot = true
 var Spawn = [Vector2(50,150),Vector2(200,250),Vector2(160,550),Vector2(60,200),Vector2(250,230),Vector2(300,800),Vector2(45,1050),Vector2(1050,1000),Vector2(1800,800),Vector2(1750,450),Vector2(1850,250),Vector2(1000,100),]
 var velocity = Vector2()
@@ -34,16 +37,40 @@ func _ready():
 func _process(delta):
 	reverse()
 	if is_network_master():
-		velocity = Vector2(moveX,moveY)
-		velocity = velocity.normalized() * SPEED
-		move_and_slide(velocity)
+		
 		rset_unreliable("slave_position", self.position)
+		
+		
+		if !Is_Gravity:
+			velocity = Vector2(moveX,moveY)
+			velocity = velocity.normalized() * speed
+			move_and_slide(velocity)
+		
+			
+		else:
+			if velocity.y < 200:
+				velocity.y += delta * gravity
+			if velocity.y > 150:
+				Is_jumping = false
+				
+			velocity = Vector2(moveX,velocity.y)
+			var motion = velocity * delta
+			
+			move_and_slide(velocity, Vector2(0, -1))
 		
 	else:
 		
 		move_and_slide(slave_move)
 		self.position = slave_position
 		
+
+func _jump():
+	velocity.y = -speed
+	Is_jumping = true
+
+
+
+
 
 func _on_Timer_timeout():
 	if is_network_master():
@@ -61,9 +88,12 @@ func RandomMotion() :
 	AxeX = int(rand_range(-2,2))
 	AxeY = int(rand_range(-2,2))
 	
-	moveX = SPEED * AxeX
-	moveY = SPEED * AxeY
+	if !Is_jumping:
+		_jump()
 	
+	moveX = speed * AxeX
+	moveY = speed * AxeY
+
 	
 
 func Respawn():
@@ -87,4 +117,11 @@ func reverse():
 	elif posY > get_viewport_rect().size.y :
 		self.set_position(Vector2(posX ,0))
 
-
+func gravity_switch():
+	if Is_Gravity:
+		Is_Gravity = false
+	
+	else:
+		Is_Gravity = true
+	
+	

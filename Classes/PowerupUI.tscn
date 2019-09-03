@@ -22,7 +22,6 @@ tracks/0/keys = {
 }
 
 [node name="Control" type="Control"]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
@@ -43,12 +42,14 @@ alignment = 1
 margin_top = 290.0
 margin_right = 500.0
 margin_bottom = 790.0
+rect_scale = Vector2( 0.25, 0.25 )
 rect_pivot_offset = Vector2( 250, 250 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
 texture = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 0.9
@@ -57,3 +58,4 @@ anims/PU_test = SubResource( 1 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = 1.0
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

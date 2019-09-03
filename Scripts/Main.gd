@@ -1,6 +1,6 @@
 extends Node
 
-export var Bot_number  = 20
+export var Bot_number  = 8
 signal call_bot
 var ScoreUI
 var pause = false

@@ -30,7 +30,7 @@ func _physics_process(delta):
 		if ray_result:
 			beam_end=  ray_result.position  - global_position
 			target = ray_result.collider
-			if target.is_in_group("bots"):
+			if target.is_in_group("entity"): ############  <<<----- HERE
 				emit_signal("score_change")
 			
 		else :
